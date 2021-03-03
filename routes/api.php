@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/order/create/{productId}', [OrderController::class, 'createOrder'])
+Route::get('/order/create/{product}', [OrderController::class, 'createOrder'])
     ->name('order.create');
 
 Route::get('/order/all/', [OrderController::class, 'getAllOrders'])
