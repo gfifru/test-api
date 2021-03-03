@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/order/create/{productId}', [OrderController::class, 'createOrder'])
+    ->name('order.create');
+
+Route::get('/order/all/', [OrderController::class, 'getAllOrders'])
+    ->name('order.all');
+
+Route::get('/order/discount/', [OrderController::class, 'getAllOrdersWithDiscount'])
+    ->name('order.discount');
